@@ -1,0 +1,40 @@
+using System;
+
+namespace StringMethodsExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Substring methodunu kullanarak bir string'den parçalar alalım
+            string s = "Bu bir string örneğidir";
+            string s1 = s.Substring(0, 3); // "Bu "
+            string s2 = s.Substring(4, 4); // "bir "
+
+            Console.WriteLine(s1);
+            Console.WriteLine(s2);
+
+            // Contains methodunu kullanarak bir string'de bir kelime arama
+            if (s.Contains("string"))
+            {
+                Console.WriteLine("String 'string' kelimesini içerir.");
+            }
+
+            // Join methodunu kullanarak dizi elemanlarını birleştirme
+            string[] words = { "Bu", "bir", "öğrenme", "örneğidir" };
+            string sentence = string.Join("-", words);
+            Console.WriteLine(sentence); // "Bu-bir-öğrenme-örneğidir"
+            
+            // Substring ve Contains methodlarını birleştirerek bir işlem yapma
+            int index = s.IndexOf(s2); // s2 değişkeni "bir " olarak tanımlanmıştır ve s değişkeninde "bir " kelimesi 4. index'te bulunur
+            if (index > -1)
+            {
+                string sub = s.Substring(index, s2.Length);
+                if (sub.Contains("bir"))
+                {
+                    Console.WriteLine("s2 değişkeni 'bir' kelimesini içerir.");
+                }
+            }
+        }
+    }
+}
