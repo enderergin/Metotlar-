@@ -1,59 +1,49 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Metotlar
+namespace NetFramework.S10.D3.StaticBolumSonuOdevUygulama
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Matematik m = new Matematik();
-            basadon:
-            m.menu();
-            int s = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("1.degeri girin");
-            decimal say1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("2.degeri girin");
-            decimal say2 = Convert.ToInt32(Console.ReadLine());
+            Bilgi M1 = new Bilgi();
+            M1.musteriID = 1;
+            M1.isim = "Cengiz";
+            M1.soyisim = "Atilla";
+            M1.emailAdres = "cengiz.atilla@hotmail.com";
+            M1.KullaniciAdi = "cengiz.atilla";
+            M1.sifre = "1";
 
-            decimal sonuc = 0;
+            Bilgi.MusteriEkle(M1);
 
-
-            switch (s)
+            Bilgi M2 = new Bilgi()
             {
-                case 1:
-                   sonuc = m.topla(say1, say2);
-                    m.cikti(say1, say2, sonuc, "+");
-                    break;
-                case 2:
-                   sonuc = m.cikar(say1, say2);
-                    m.cikti(say1, say2, sonuc, "-");
-                    break;
-                case 3:
-                   sonuc = m.carp(say1, say2);
-                    m.cikti(say1, say2, sonuc, "*");
+                musteriID = 2,
+                isim = "Ahmet",
+                soyisim = "Atilla",
+                emailAdres = "ahmet.atilla@hotmail.com",
+                KullaniciAdi = "ahmet.atilla",
+                sifre = "2"
+            };
 
-                    break;
-                case 4:
-                   sonuc = m.bol(say1, say2);
-                    m.cikti(say1,say2,sonuc,"/");
-                    break;
-                default:
-                    Console.WriteLine("Geçersiz işlem seçtiniz");
-                    Console.WriteLine("Yeniden deneyin!");
-                    goto basadon;
-                    
+            Bilgi.MusteriEkle(M2);
 
-            }
-            Console.WriteLine("Başa dönmek için (E/H)");
-            string d = Console.ReadLine();
-            if (d.ToUpper() == "E")
-            {
-                goto basadon;
-            }
+            Bilgi M3 = new Bilgi();
+            M3.musteriID = 1;
+            M3.isim = "Cengiz";
+            M3.soyisim = "Atilla";
+            M3.emailAdres = "cengiz.atilla@hotmail.com";
+            M3.KullaniciAdi = "cengiz.atilla";
+            M3.sifre = "1";
+
+            Bilgi.MusteriEkle(M3);
+
+
         }
     }
 }
